@@ -1,0 +1,1085 @@
+print('Welcome to R studio')
+
+#Heights of friends
+x=150
+y=165
+z=143
+
+
+Average = (x+y+z)/3
+#Display Average
+Average
+
+#vectors
+height = c(150,165,143)
+height
+mean(height)
+
+sum(height)/3
+sum(height)/length(height)
+
+#R is Case Sensitive
+#print(Height)
+#Clear the Console Ctrl+L
+#R is a dynamically typed language 
+z=100
+z
+z=10
+z
+z="Apple"
+z
+z='x'
+z
+
+
+#data types
+#numeric 
+x=10 
+#character
+z="A"
+#integer
+i=as.integer(10)
+i
+
+
+#data structures 
+##vector
+c(10,20,30)
+myVec=c(10,20,30)
+myVec
+
+#indexing 
+myVec[1]
+myVec[2]
+myVec[3]
+
+myVec[-1]
+myVec[-2]
+
+#sub-setting
+myVec[c(1,2)]
+myVec[-3]
+
+#extracting 1st and 3rd elements 
+myVec[c(1,3)]
+
+A= c(10,20,30,"R1","R2","R3")
+A
+
+data.frame(Current = c(5,10,7),
+           Type = c("R1","R2","R3"))
+myDf=data.frame(Current = c(5,10,7),
+                Type = c("R1","R2","R3"))
+
+myDf
+
+
+#average current
+myDf$Current
+mean(myDf$Current)
+
+
+#first row 
+myDf[1,]
+
+myDf[1,c(1,2)]
+
+#first column
+myDf[c(1,2,3),1]
+myDf[,1]
+
+#sequences 
+# 1 2 3 4 5
+c(1,2,3,4,5)
+1:5
+10:1
+10:6
+-5:5
+1:100
+2:10
+
+seq(2,10,by=2)
+1:5+1:5
+1:5*2
+
+B=c(10,25,30,14,16,35,82)
+B[c(1,2,3,4)]
+B[1:4]
+B[c(1:4)]
+
+#extracting 2,4,6
+B[1:3*2]
+
+#Creating Marks Data Frame
+marksDf=data.frame(ID = c("010","011","012","013"),
+           Marks1 = c(75,60,80,50),
+           Marks2 = c(80,70,90,75))
+#Display the output
+marksDf
+
+#create the final marks 
+marksDf$final_marks= marksDf$Marks1 + marksDf$Marks2
+marksDf
+
+#
+
+x=c(1,2,3,4,5)
+y=c(1,5,3,7,5)
+x==y
+sum(x==y)
+
+z=c(10:20)
+z
+#even numbers
+z[1]
+z/2
+z %% 2 ==0
+z[z %% 2 ==0]
+
+marks=c(70,80,35,40)
+M=marks+10
+M
+
+append(1:10,99,after = 5)
+append(1:10,99,after = 0)
+
+#Creating Matrices in R 
+A=1:6
+dim(A)
+dim(A)=c(2,3)
+print(A)
+
+#functions
+x=10:15
+add10=function(y){
+  print(y+10)
+}
+add10(100)
+
+#miles into km 
+miles2km=function(miles){
+  print(miles*1.6)
+}
+miles2km(10)
+miles2km(miles = 10)
+
+miles2km=function(miles){
+  cat(miles,"miles is",miles*1.6,"Km \n")
+}
+miles2km(50)
+
+#additional packages
+#library(lib name)
+
+#next week
+#Lets include a Gender column and extractions
+
+#Delete the Objects 
+
+ls() #listing all the objects 
+
+
+
+##################################################################################################################################################
+
+#UOC DAY 02
+#Creating Marks Data Frame
+marksDf=data.frame(ID = c(1:5),
+                   Marks = c(100,95,60,70,82),
+                   Gender = c("M","F","M","M","F"))
+#Display the output
+marksDf
+
+#EXTRACT THE MARKS OF FEMALES 
+marksDf$Marks[2]
+marksDf$Marks[5]
+
+marksDf$Marks[c(2,5)]
+marksDf$Gender =="F" 
+marksDf
+
+marksDf$ID[marksDf$Gender =="F"]
+marksDf$Marks[marksDf$Gender =="F"]
+
+#find average marks of males 
+mean(marksDf$Marks[marksDf$Gender =="M"])
+
+#pop up new window
+fix(marksDf)
+
+marksDf$Grade=c("A","A","C","B","A")
+marksDf
+
+#get rid of the gender column
+marksDf$Gender =NULL
+marksDf
+
+names(marksDf)
+str(marksDf)
+
+#importing external data 
+
+#working directory
+
+getwd()
+
+setwd("G:/YEAR 2/Semester-3/AUG -NOV (4)/EA 2009/UOC R STUDIO/Data")
+
+dir()
+
+
+
+#READING A CSV FILE 
+data= read.csv("myCSVData.csv")
+data
+
+
+dataExcel
+#find the average marks using the csv file 
+
+#plot
+x=1:10
+y=20:11
+plot(x,y,type="l", col="blue",lwd=3)
+
+y=x**2
+x=c(-5,-3,0,3,5)
+y=x**2
+plot(x,y,type="l")
+
+
+x=c(-5,-3,0,3,5)
+x=seq(from=-5, to=5,by=0.01)
+y=x**2
+plot(x,y,type="l", main="Y=X squared")
+plot(x,y,type="l", main=bquote("Y=X^2"),ylab="Y",xlab="X")
+
+
+rep(1, times=5)
+rep(c(1,2,3),times=5)
+
+A=c(1,1,2,2,3,3)
+rep(A, times=4)
+
+#better answer  
+rep(c(1,2,3),times=4,each=2)
+
+#data structure 
+#arrays
+
+
+a1=array(1:5,dim=c(1,5))
+a1
+
+#2d array 
+a2=array(1:6,dim=c(2,3))
+a2
+
+a3=array(11:16,dim=c(2,3))
+a3
+
+a2+a3
+
+
+#matrices
+
+m1=matrix(c(1:6),nrow=2, ncol=3)
+m1
+
+#creating the matrix
+
+m2=matrix(c(10,12,13,14,15,16),nrow=2, ncol=3)
+m2
+
+
+m1=matrix(c(1:6),nrow=2, ncol=3)
+m1
+
+#Ex1
+# 11 12 13
+# 14 15 16
+
+A = matrix(
+  c(11,12,13,14,15,16),
+  # No of rows
+  nrow = 2,  
+  # No of columns
+  ncol = 3,        
+  byrow = TRUE         
+)
+A
+
+A+A
+A*2
+
+
+
+A=matrix(1:6,2,3,byrow=T)
+A
+B=matrix(1:6,3,2,byrow=F)
+B
+
+A%*%B
+
+A=matrix(1,-2,3,-7)
+A
+
+#linear equation solve
+m1=matrix(c(1,-2,3,-7),nrow=2, ncol=2,byrow = T)
+m1
+
+m2=matrix(c(5,-15),nrow=2, ncol=1,byrow = T)
+m2
+
+solve(m1,m2)
+
+#inverse 
+solve(m1)
+
+m1=matrix(c(10,11,15,17),nrow=2, ncol=2,byrow = T)
+m1
+solve(m1)
+
+#R datasets
+
+#loading mass package 
+
+library(MASS)
+shoes
+
+data(mtcars)
+head(mtcars)
+tail(mtcars)
+
+#random sampling 
+sample(1000,50)
+sample(10,3)
+set.seed(123)
+
+###################################################################################################
+
+
+
+#UOC Day 3 out of 6 
+#Prasad D Wilagama's R Script
+#Creating Marks Data Frame
+marksDf=data.frame(ID = c(10,15,20),
+                   X = c(100,200,250),
+                   Y = c(500,700,600))
+#Display the output
+marksDf
+
+##
+sample(1:10,5)
+
+sample(1:10,5)
+
+#same set of random no use set.seed
+set.seed(100)
+sample(1:38,5)
+
+#default one is fault 
+sample(1:38,5,replace = T)
+#pseudo random numbers 
+
+#sample(c("H","T"),10,replace = T)
+set.seed(123)
+sample(c("H","T"),10,replace = T,prob = c(0.9 ,0.1))
+
+# Run 50 times and get the Heads
+set.seed(123)
+x=sample(c("H","T"),50,replace = T,prob = c(0.9 ,0.1))
+x
+sum(x=="H")
+
+
+#roll a die 50 times and get 2 unbaised 
+set.seed(2)
+x=sample(c(1:6),50,replace = T)
+x
+sum(x==2)
+
+vec1=c(5,3,2,7,9)
+vec
+sort(vec1)
+vec1_sorted=sort(vec1)
+
+
+#writing functions using R 
+#defining the function 
+
+Add10=function(x){
+  return(x+10)
+}
+
+#calling the function 
+y=c(210,212,208)
+Add10(y)
+
+z=Add10(y)
+z
+
+#Ex
+#write a function to convert F to C 
+
+#Defining the function 
+F2c=function(x){
+  c=(5/9)*(F-32)
+  return(x)
+}
+#calling the function 
+F2c(212)
+
+F2c(-40)
+
+
+print("Tempreture is",100)
+cat("Tempreture is",100)
+
+F2c=function(F){
+    temp=(5/9)*(F-32)
+    cat("Fahrenheit",F,"is",temp,"Ceilcius.")
+}
+F2c(0)
+
+
+
+### ? 
+
+f1=function(x,b)
+  {
+  Y=2*x+b
+  print(y)
+}
+
+f1(2,3)
+
+f1(200,600)
+
+
+#flow controls 
+
+for(i in(1:5)){
+  print(i)
+}
+
+
+
+for(i in(3:9)){
+  if (i %% 2 ==1)
+  print(i)
+}
+
+
+
+
+# if conditions 
+x=10 
+if(x>0){
+  print("Positive")
+}
+
+
+x=-10 
+if(x>0){
+  print("Positive")
+} else{
+  print("negative")
+}
+
+#nested if
+x=2 
+if(x>0){
+  print("Positive")
+} else if(x<0){
+  print("negative")
+ }else{
+    print("Zero")
+  }
+
+
+#while loops 
+j=10
+while (j<5) {
+  print(j)
+  j=j+1
+}
+
+
+
+j=10
+while (j>0) {
+  print(j)
+  j=j-2
+}
+
+
+
+#repeat loop 
+w=1 
+repeat{
+  print(w)
+  w=w+1
+  if(w==11)
+    break
+}
+
+#HW 1 week time
+
+#Defining the function 
+Pattern=function(x){
+  return(x+10)
+}
+
+#calling the function 
+y=c(210,212,208)
+Add10(y)
+
+z=Add10(y)
+z
+
+##summary function
+data(mtcars)
+summary(mtcars$mpg)
+median(mtcars$mpg)
+min(mtcars$mpg)
+
+head(mtcars)
+tail(mtcars)
+dim(mtcars)
+nrow(mtcars)
+ncol(mtcars)
+
+
+plot(mtcars$mpg)
+
+
+#gear type variable
+## am
+table(mtcars$am)
+#0=auto , 1=manual
+
+pie(table(mtcars$am))
+barplot(table(mtcars$am))
+
+#boxplot
+
+boxplot(mtcars$mpg)
+hist(mtcars$mpg)
+
+data("Orange")
+attach(Orange)
+hist(age,main = "Age on trees")
+hist(age,main = "Age on trees",col="blue")
+
+hist(age,main = "Age on trees",
+     col="blue",
+     probability=TRUE)
+hist(age[circumference>150])
+
+detach(Orange)
+
+boxplot(mtcars$mpg,col = "yellow")
+boxplot(mtcars$mpg~mtcars$am, col="yellow")
+
+plot(Orange$age, Orange$circumference)
+
+plot(Orange$age, Orange$circumference, type="l")
+head(Nile)
+plot(Nile)
+
+
+x=1:100
+
+y=x+rnorm(100,sd=10)
+plot(y,type="l")
+
+plot(y ,pch="+")
+
+plot(y ,pch="-")
+
+pot(Orange$age,Orange$circumference)
+identify(Orange$age,Orange$circumference)
+
+
+par(mfrow=c(2,2))
+boxplot(Orange$age,main="Age")
+hist(Orange$age,main = "Hist Age")
+boxplot(Orange$circumference,main="Circumference")
+hist(Orange$circumference,main = "C")
+par(mfrow=c(1,1))
+  
+#distributions 
+pnorm(-1.5)
+
+1-pnorm(0.75)
+
+
+###############################################################################
+
+#UOC Day 4 out of 6 
+#Prasad D Wilagama's R Script
+
+#u=20 and Sigma^2 4.2^2 M=18 
+pnorm(18,20,4.2)
+
+pnorm(24,20,4.2)
+
+#p(x>18)=p(x>=18)=1-P(x<=18)
+1-pnorm(18,20,4.2)
+
+
+#p(x>24)=p(x>=24)
+1-pnorm(24,20,4.2)
+
+#quantile for 25%
+qnorm(.25,20,4.2)
+
+#right hand side quantile 
+qnorm(.75,20,4.2)
+
+qnorm(.25,20,4.2,lower.tail = FALSE)
+
+dbinom(10,10,0,5)
+(0.5)**10
+
+#when x -Binomial(n=10,p=0.3)
+#find the p[X<=2]
+dbinom(0,10,0.3)+dbinom(1,10,0.3)+dbinom(2,10,0.3)
+
+pbinom(2,10,0.3)
+
+#Find the P[X<2]
+pbinom(1,10,0.3)
+dbinom(0,10,0.3)+dbinom(1,10,0.3)
+
+
+
+#when x -Binomial(n=10,p=0.3)
+#find the p[X>7]=?
+dbinom(8,10,0.3)+dbinom(9,10,0.3)+dbinom(10,10,0.3) #ans pattern1
+1-pbinom(7,10,0.3) #both are true
+
+set.seed(123)
+x=rnorm(100,100,15)
+x
+hist(x)
+
+
+
+rnorm(10,0,1) #same
+rnorm(10) #same
+
+y=rnorm(1000)
+y
+hist(y)
+
+#CLT
+#genarating a samplel of size 50 from uniform distribution
+
+x=runif(50)
+mean(x)
+
+#repat this for 5000 times 
+
+xBar =numeric(0)
+for(i in 1:5000){
+  x=runif(50)
+  xBar[i]=mean(x)
+}
+
+hist(xBar)
+
+
+#change the sample size
+n=100
+xBar =numeric(0)
+for(i in 1:5000){
+  x=runif(n)
+  xBar[i]=mean(x)
+}
+
+hist(xBar)
+
+#using an exponential function 
+n=5
+xBar =numeric(0)
+for(i in 1:5000){
+  x=rexp(n,5)
+  xBar[i]=mean(x)
+}
+
+hist(xBar)
+
+
+# Try CLT using the median
+
+# split the plot area
+par(mfrow=c(2,2))
+
+n = 5
+xMedian = numeric(0)
+for(i in 1:5000){
+  x = runif(n)
+  xMedian[i] = median(x)
+}
+hist(xMedian, main=paste("n=",n))
+
+n = 10
+xMedian = numeric(0)
+for(i in 1:5000){
+  x = runif(n)
+  xMedian[i] = median(x)
+}
+hist(xMedian, main=paste("n=",n))
+
+n = 30
+xMedian = numeric(0)
+for(i in 1:5000){
+  x = runif(n)
+  xMedian[i] = median(x)
+}
+hist(xMedian, main=paste("n=",n))
+
+n = 100
+xMedian = numeric(0)
+for(i in 1:5000){
+  x = runif(n)
+  xMedian[i] = median(x)
+}
+hist(xMedian, main=paste("n=",n))
+
+#========
+n = c(5,10,30,100)
+xMedian = numeric(0)
+for(i in n){
+  for(j in 1:5000){
+    x = runif(i)
+    xMedian[j] = median(x)
+  }
+  hist(xMedian, main=paste("n=",i))
+}
+#========
+n = c(5,10,30,100)
+xMedian = numeric(0)
+for(i in n){
+  for(j in 1:5000){
+    x = rexp(i,5)
+    xMedian[j] = median(x)
+  }
+  hist(xMedian, main=paste("n=",i))
+}
+
+par(mfrow=c(1,1))
+
+
+
+B=5000
+n=25
+
+#sample from 3 distributions , each with mean and variance 3 
+
+exp.mat=matrix(rexp(B*n,1/3),n,B)
+unif.mat=matrix((runif(B*n,0,6),n,B))
+
+
+#Homework #45
+myStair= function(n){
+  for(i in 2:n){
+    for(j in 1:i){
+      cat(j,"")
+    }
+    cat("\n")
+  }
+}
+  
+myStair(5)
+
+#Quiz #37
+
+dieRoll = function(n){
+  x= sample(c(1:6),n,replace = T)
+  numOdds= sum(x%%2==1)#odd
+  cat("There were ",numOdds,"odd Num")
+  
+}
+dieRoll
+
+
+############################################################################################################
+
+#Day 5/6
+#EA 2009 Computational Statistics
+#Prasad Dananjaya Wilagama
+
+#Bootstrap
+
+##Original Sample
+x=c(3.12,0,1.57,19.67,0.22,2.2)
+x
+
+##re sample
+y=sample(x,length(x),replace = T)
+
+##mean of the re sample
+mean(y)
+
+##Bootstrap Repeat this for 500 times in R
+
+xBar=numeric(0)
+for (i in 1:500)        
+{
+  xBar[i]=mean(sample(x,length(x),replace = T)) 
+}
+
+hist(xBar, main = "Bootstrap Distribution of Sample Means")
+
+##Calculate the bootstrap standard error.
+sd(xBar)
+B=500
+sqrt(sum((xBar-mean(xBar))**2)/(B-1))
+
+###
+
+##original Sample 
+x=c(3.12,0,1.57,19.67,0.22,2.2)
+
+#obtain the bootstrap distribution of sample of sample median and estimate the 
+#SE
+B=500
+xMedian = numeric(0)
+for(i in 1:B){
+  xMedian[i]=median(sample(x,length(x),replace = T))
+}
+hist(xMedian)
+sd(xMedian)
+
+##############
+#EX
+set.seed(100)
+x=c(92 ,123 ,88, 598 ,100 ,114 ,89 ,522 ,58 ,191,137 ,100 ,403 ,144 ,184 ,102 ,83 ,126 ,53, 79)
+x
+
+n=length(x)
+
+##re sample
+y=sample(x,length(x),replace = T)
+
+##mean of the re sample
+mean(y)
+
+xBar=numeric(0)
+for (i in 1:20)        
+{
+  xBar[i]=mean(sample(x,length(x),replace = T)) 
+}
+
+hist(xBar, main = "Bootstrap Distribution of Sample Means")
+
+sd(xBar)
+
+#t-confidence Interval
+
+mean(xBar) + qt(0.975,n-1)*sd(xBar)
+
+
+mean(xBar) - qt(0.975,n-1)*sd(xBar)
+
+###
+#2
+##Bootstrap Percentile Confidence Intervals
+#95%
+quantile(xBar,c(0.025,0.975))
+
+
+quantile(1.21,c(0.025,0.975))
+
+
+
+
+####
+##pg5 
+##Aspirin(11037)
+#H=199 (1)
+#N.H=11037-119 (0)
+
+##
+asprin=c(rep(1,times=119),rep(0,times=(11037-119)))
+
+
+
+placebo=c(rep(1,times=98),rep(0,times=(11034-98)))
+
+B=500
+RR =numeric(0)
+for (i  in 1:B) {
+  
+
+ numerator=sum(sample(asprin,length(asprin),replace = T))/11037
+ denominator = sum(sample(placebo,length(placebo),replace = T))/11034
+ RR[i]=numerator/denominator
+}
+hist(RR)
+quantile(RR,c(0.025,0.975))
+
+
+
+##Multivariate Data
+##Import Data 
+
+wine=read.table("wine.data.txt",sep = ",")
+head(wine)
+
+wine[2:6] #selected only v2 to v6
+
+plot(wine[2:6])
+
+plot(wine$V4, wine$V5)
+
+text(wine$V4, wine$V5,wine$V1,col="red")
+
+
+#Summary Statistics
+sapply(wine[2:14],mean)
+
+
+mean(wine$V2)
+mean(wine$V3)
+
+sapply(wine[2:14],mean)
+
+sapply(wine[2:14],sd)
+
+##########################
+########################
+#####################
+
+#Standardizing Variables
+wine.std = scale(wine[2:14])
+head(wine.std)
+
+
+plot(wine$V4, wine$V5)
+cor.test(wine$V4, wine$V5)
+
+
+
+plot(wine$V2, wine$V3)
+cor.test(wine$V2, wine$V3)
+
+# H0 : There is no correlation
+# H1 : There is a significant correlation 
+
+#r=0.09
+#p-value = 0.2101 
+#since the pval >0.05, we fail to reject H0
+#therefore the correlation between v2 and v3 is not significance at 5% level
+
+
+
+###Cluster Analysis 
+
+winesample = wine[2:6]
+winesampleStd = scale(winesample) 
+
+dist = dist(winesampleStd, method= "euclidean")
+clust = hclust(d, method="single")
+plot(clust)
+rect.hclust(clust, k=2, border="red")
+
+
+kmeans(winesampleStd,2)
+
+
+##################################################################################################
+
+#Revision 
+#Last Day 
+#2019 Paper
+
+#Q1
+#a
+pnorm(11,10,5)
+#b
+1-pnorm(11,10,5)
+#c
+pnorm(11,10,5)-pnorm(7,10,5)
+
+#Q2
+greet=function(TIME){
+  if(TIME<12){
+    print("Good Morning")
+  }else if(TIME<15){
+    print("Good afternoon")
+    }else{
+      print("Good evening")
+    }
+}
+
+greet(13)
+
+T=Sys.time()
+
+#Q3
+
+#a
+data("cO2")
+str(co2)
+
+summary(co2$conc)
+
+summary(co2$uptake)
+
+#b
+hist(co2$conc)
+hist(co2$uptake)
+
+
+#Q4
+dieRoll =function(n){
+  x= sample(c(1:6),n,replace = T)
+  return(sum(x %% 2 == 0))
+  }
+
+dieRoll(5)
+
+
+
+###############################################################
+##2018 Paper
+
+#Q2
+
+
+n=50
+M=5000
+
+xSD=numeric(0)
+for(i in 1:M){
+  x=rnorm(n,100,sqrt(20))
+  xSD[i] = sd(x)
+}
+hist(xSD,main="Distribution fo Sample SD")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
